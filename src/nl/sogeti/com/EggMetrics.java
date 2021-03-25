@@ -1,21 +1,23 @@
 package nl.sogeti.com;
 
+import java.awt.image.BufferedImage;
+
 public class EggMetrics {
     private final int horizontalRadius;
     private final int verticalRadius;
     private int centerXPoint;
     private int centerYPoint;
-    private final String color;
+    private final BufferedImage image;
     private final String backgroundColor;
     private int frameHeight;
     private int frameWidth;
 
-    public EggMetrics(final int horizontalRadius, final int verticalRadius, final int centerXPoint, final int centerYPoint, final String color, final String backgroundColor) {
+    public EggMetrics(final int horizontalRadius, final int verticalRadius, final int centerXPoint, final int centerYPoint, final BufferedImage image, final String backgroundColor) {
         this.horizontalRadius = horizontalRadius;
         this.verticalRadius = verticalRadius;
         modifyCenterXPoint(horizontalRadius, centerXPoint);
         modifyCenterYPoint(verticalRadius, centerYPoint);
-        this.color = color;
+        this.image = image;
         this.backgroundColor = backgroundColor;
         calculateFrameHeight(verticalRadius, this.centerYPoint);
         calculateFrameWidth(horizontalRadius, this.centerXPoint);
@@ -37,8 +39,8 @@ public class EggMetrics {
         return centerYPoint;
     }
 
-    public String getColor() {
-        return color;
+    public BufferedImage getImage() {
+        return image;
     }
 
     public String getBackgroundColor() {
