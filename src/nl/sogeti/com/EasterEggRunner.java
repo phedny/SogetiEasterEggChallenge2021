@@ -16,15 +16,31 @@ public class EasterEggRunner {
     private int x, y, dx, dy;
 
     public static void main(String[] args) throws IOException, AWTException, InterruptedException {
-        if (!Terminal.isTerminal()) {
-            System.out.println("Please run the code from a terminal, e.g. not from inside IntelliJ");
-            return;
+        if ("size".equals(System.getProperty("track")) && Terminal.isTerminal()) {
+            new EasterEggRunner().runWithTerminal();
+        } else {
+            new EasterEggRunner().run();
         }
-
-        new EasterEggRunner().run();
     }
 
-    private void run() throws InterruptedException, IOException, AWTException {
+    private void run() throws InterruptedException, AWTException {
+        readScreenSize();
+        setInitialPosition();
+
+        terminalWidth = 102;
+        terminalHeight = 70;
+
+        while (true) {
+            readScreenSize();
+            updatePosition();
+            clearTerminalBuffer();
+            drawFrame();
+
+            Thread.sleep(40);
+        }
+    }
+
+    private void runWithTerminal() throws InterruptedException, IOException, AWTException {
         try (final Terminal terminal = new Terminal()) {
             readScreenSize();
             setInitialPosition();
@@ -90,10 +106,18 @@ public class EasterEggRunner {
 
     private void drawFrame() throws AWTException {
         final BufferedImage image = new Robot().createScreenCapture(new Rectangle(x, y, terminalWidth / 2, terminalHeight));
-//        final EggMetrics eggMetrics = new EggMetrics(30, 22, terminalWidth / 2, 20, image, Colors.GREEN.getColor());
-        final EggMetrics eggMetrics = new EggMetrics(terminalWidth / 3 - 5, (terminalHeight - 44) / 2, (terminalWidth - 1) / 2, (terminalHeight - 34) / 2, image, Colors.GREEN.getColor());
+        final int maximumHorizontalRadius = terminalWidth / 3 - 5;
+        final int maximumVerticalRadius = (terminalHeight - 44) / 2;
+        final EggMetrics eggMetrics;
+        if (maximumHorizontalRadius * 22 / 30 > maximumVerticalRadius) {
+            eggMetrics = new EggMetrics(maximumVerticalRadius * 30 / 22, maximumVerticalRadius, (terminalWidth - 1) / 2, (terminalHeight - 34) / 2, image, Colors.GREEN.getColor());
+        } else {
+            eggMetrics = new EggMetrics(maximumHorizontalRadius, maximumHorizontalRadius * 22 / 30, (terminalWidth - 1) / 2, (terminalHeight - 34) / 2, image, Colors.GREEN.getColor());
+        }
         EasterEgg.drawEgg(eggMetrics);
-        new SogetiLogoDrawer().printSogetiLogo();
+        if (terminalWidth > 100) {
+            new SogetiLogoDrawer().printSogetiLogo();
+        }
         System.out.flush();
     }
 

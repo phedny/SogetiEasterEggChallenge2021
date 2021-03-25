@@ -18,13 +18,12 @@
 </span>
 
 #### Het paasei is geleverd door de mensen van Sogeti, maar om deze inzending goed te kunnen zien, moet je met een paar dingen rekening houden:
-- De applicatie is gebouwd en getest met een Mac (o.b.v. de laatste versie van macOS Big Sur), maar zou ook moeten werken op Linux; de applicatie zal niet werken op een Windows-machine
-- De applicatie moet gestart worden vanuit een terminal met een TTY met support voor minimaal 256 kleuren, dus niet vanuit IntelliJ
-- Wanneer een terminal wordt gebruikt met support voor 256 kleuren, maar niet meer, zorg dan dat de `-Dcolors=256` property meegegeven wordt aan het `java` proces
-- Het paasei schaalt mee met het formaat van de terminal, probeert het vooral eens uit!
+- De applicatie is gebouwd en getest met een Mac (o.b.v. de laatste versie van macOS Big Sur), geen garantie dat 't werkt in Linux of Windows
+- Gebruik een terminal die ten minste 256 kleuren kan tonen; de ingebouwde terminal van IntelliJ is hiervoor niet geschikt
+- Wanneer je de applicatie start vanuit een terminal met ondersteuning van het volledige RGB kleurenpallet (zoals iTerm.app op macOS), start de applicatie dan met `java nl.sogeti.com.EasterEggRunner`
+- Ondersteunt je terminal slechts 256 kleuren (zoals Terminal.app op macOS), start de applicatie dan met `java -Dcolors=256 nl.sogeti.com.EasterEggRunner`
+- Opent je terminal een TTY (zoals iTeam.app en Terminal.app doen), dan kun je door de applicatie met `java -Dtrack=size nl.sogeti.com.EasterEggRunner` het paasei laten schalen met het formaat van de terminal
 
-#### De auteur van deze inzending heeft het paasei getest in twee terminal applicaties op macOS:
-- De in macOS ingebouwde Terminal.app heeft een mooi vloeiend resultaat, maar deze terminal ondersteund slechts 256 kleuren
-- De apart te downloaden iTerm.app heeft ondersteuning voor het volledige RGB kleurenpallet, maar flikkert helaas
+#### Veel plezier met deze inzending!
 
 ---
