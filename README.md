@@ -5,7 +5,7 @@
 
 #### Hoera, het is alweer bijna Pasen, tijd om naar paaseitjes te zoeken!
 #### ‘Easter eggs’ zijn een bekend begrip binnen softwareland. De meeste klanten waarderen het niet als je easter eggs in hun productiecode zet, dus hier is je moment!
-#### Dit is de inzending die is gemaakt door Mark van Cuijk. Ik heb me voor mijn inzending laten inspireren door de challenge om 'm te laten animeren als flipbook en op de prijs die te winnen is. De prijs is een beeldscherm, dus de beste versiering van het ei is een stream van het scherm.
+#### Dit is de inzending die is gemaakt door Mark van Cuijk. Ik heb me voor mijn inzending laten inspireren door de challenge om 'm te laten animeren als flipbook en op de prijs die te winnen is. De prijs is een beeldscherm, dus de beste versiering van het ei is een ei waarop een stream van je eigen scherm wordt geprojecteerd :-)
 
 </span>
 
@@ -23,6 +23,7 @@
 - Wanneer je de applicatie start vanuit een terminal met ondersteuning van het volledige RGB kleurenpallet (zoals iTerm.app op macOS), start de applicatie dan met `java nl.sogeti.com.EasterEggRunner`
 - Ondersteunt je terminal slechts 256 kleuren (zoals Terminal.app op macOS), start de applicatie dan met `java -Dcolors=256 nl.sogeti.com.EasterEggRunner`
 - Opent je terminal een TTY (zoals iTeam.app en Terminal.app doen), dan kun je door de applicatie met `java -Dtrack=size nl.sogeti.com.EasterEggRunner` het paasei laten schalen met het formaat van de terminal
+- Omdat het paasei een projectie van je eigen scherm toont, kan het zijn dat je de applicatie de juiste toegang moet geven. Ik weet niet hoe dit in Linux of Windows werkt, op macOS zal het systeem de eerste keer vanzelf vragen deze toestemming te verlenen
 
 #### Veel plezier met deze inzending!
 
