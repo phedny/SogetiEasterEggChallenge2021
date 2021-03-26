@@ -101,7 +101,7 @@ public class EasterEggRunner {
     }
 
     private void clearTerminalBuffer() {
-        System.out.print("\u001B[2J\u001B[1;1H");
+        System.out.print("\u001B[1;1H");
     }
 
     private void drawFrame() throws AWTException {
